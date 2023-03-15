@@ -1,0 +1,65 @@
+# ==============================================================================
+# 🌍 ROOT LEVEL FILES
+# ==============================================================================
+# Environment secrets
+.env
+.env.*
+!.env.example
+
+# OS system files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ==============================================================================
+# 🐋 DOCKER & CONTAINERS
+# ==============================================================================
+# Docker data directories (if your compose mounts volumes locally)
+.docker/
+docker/data/
+docker/db_data/
+
+# Docker logs
+*.log
+docker/**/*.log
+
+# ==============================================================================
+# 💻 IDEs & EDITORS
+# ==============================================================================
+# VS Code
+.vscode/
+!.vscode/extensions.json
+!.vscode/launch.json
+
+# WebStorm / IntelliJ
+.idea/
+
+# Local history / text editors
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+
+# ==============================================================================
+# 📦 SUBFOLDER BACKUPS (Safety nets)
+# ==============================================================================
+# Node dependencies
+**/node_modules/
+node_modules/
+
+# Production build outputs
+**/dist/
+**/build/
+**/.next/
+**/.nuxt/
+
+# Test coverage results
+**/coverage/
+.nyc_output/
+
+# Package manager logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
