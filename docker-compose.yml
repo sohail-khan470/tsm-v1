@@ -1,0 +1,79 @@
+version: '3.8'
+
+services:
+  postgres:
+    container_name: postgres
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+    ports:
+      - '5432:5432'
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD', 'pg_isready', '-U', 'postgres']
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    container_name: redis
+    image: redis:7-alpine
+    restart: unless-stopped
+    ports:
+      - '6379:6379'
+    volumes:
+      - redis-data:/data
+    healthcheck:
+      test: ['CMD', 'redis-cli', 'ping']
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  localstack:
+    container_name: localstack
+    image: localstack/localstack:latest
+    restart: unless-stopped
+
+    ports:
+      - '4566:4566'
+    environment:
+      - SERVICES=s3,ses
+      - ACTIVATE_PRO=0
+      - LOCALSTACK_AUTH_TOKEN=ls-yEQisoVi-QOhi-0464-ReKa-yiTAhOHU32b4
+    volumes:
+      - ./docker/localstack/init-aws.sh:/etc/localstack/init/ready.d/init-aws.sh
+
+  mongodb:
+    container_name: mongodb
+    image: mongo:7
+    restart: unless-stopped
+    ports:
+      - '27018:27018'
+    volumes:
+      - mongodb-data:/data/db
+
+  rabbitmq:
+    container_name: rabbitmq-container
+    image: rabbitmq:3-management
+    restart: unless-stopped
+    ports:
+      - '5672:5672'
+      - '15672:15672'
+
+  jaeger:
+    container_name: jaeger-container
+    image: jaegertracing/all-in-one:latest
+    restart: unless-stopped
+    ports:
+      - '6832:6832'
+      - '16686:16686'
+
+# Define the named volumes here
+volumes:
+  postgres-data:
+  redis-data:
+  mongodb-data:
