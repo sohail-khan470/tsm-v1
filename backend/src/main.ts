@@ -11,7 +11,7 @@ async function bootstrap() {
   app.setGlobalPrefix('api/v1');
   app.useGlobalPipes(new ValidationPipe({ whitelist: true, transform: true }));
   // app.useGlobalFilters(new HttpExceptionFilter());
-  const pinoLogger = app.get(PinoLogger);
+  const pinoLogger = await app.resolve(PinoLogger);
   app.useGlobalInterceptors(new LoggingInterceptor(pinoLogger));
   app.enableCors({ origin: '*', credentials: true });
   app.use(helmet());

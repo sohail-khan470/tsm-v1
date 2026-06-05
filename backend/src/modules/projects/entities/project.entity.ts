@@ -1,5 +1,5 @@
-import { Task } from 'src/modules/tasks/entities/task.entity';
-import { User } from 'src/modules/users/user.entity';
+import {Task} from "../../tasks/entities/task.entity";
+import {User} from "../../users/user.entity";
 import {
   Entity,
   Column,
