@@ -1,8 +1,10 @@
-import { Attachment } from 'src/modules/attachments/entities/attachment.entity'
-import { Comment } from 'src/modules/comments/entities/comment.entity'
-import { Project } from 'src/modules/projects/entities/project.entity'
-import { Tag } from 'src/modules/tags/entities/tag.entity'
-import { User } from 'src/modules/users/user.entity'
+
+import { Attachment } from '@/modules/attachments/entities/attachment.entity'
+import { Comment } from '@/modules/comments/entities/comment.entity'
+import { Project } from '@/modules/projects/entities/project.entity'
+import { Tag } from '@/modules/tags/entities/tag.entity'
+import { User } from '@/modules/users/user.entity'
+
 import {
   Entity,
   PrimaryGeneratedColumn,

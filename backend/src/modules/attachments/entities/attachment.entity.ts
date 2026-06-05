@@ -1,5 +1,7 @@
 // attachment.entity.ts
-import { Task } from '../../tasks/entities/task.entity'
+
+import { Task } from '@/modules/tasks/entities/task.entity'
+import { User } from '@/modules/users/user.entity'
 import {
   Entity,
   PrimaryGeneratedColumn,
@@ -9,7 +11,7 @@ import {
   Index
 } from 'typeorm'
 
-import { User } from '../../users/user.entity'
+
 
 @Entity()
 @Index('idx_attachments_task', ['taskId'])
