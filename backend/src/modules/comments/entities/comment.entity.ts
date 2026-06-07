@@ -1,7 +1,7 @@
 // comment.entity.ts
 
-import { Task } from '@/modules/tasks/entities/task.entity'
-import { User } from '@/modules/users/user.entity'
+import { Task } from '../../tasks/entities/task.entity'
+import { User } from '../../users/user.entity'
 import {
   Entity,
   PrimaryGeneratedColumn,

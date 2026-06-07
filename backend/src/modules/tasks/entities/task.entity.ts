@@ -1,9 +1,9 @@
 
-import { Attachment } from '@/modules/attachments/entities/attachment.entity'
-import { Comment } from '@/modules/comments/entities/comment.entity'
-import { Project } from '@/modules/projects/entities/project.entity'
-import { Tag } from '@/modules/tags/entities/tag.entity'
-import { User } from '@/modules/users/user.entity'
+import { Attachment } from '../../attachments/entities/attachment.entity'
+import { Comment } from '../../comments/entities/comment.entity'
+import { Project } from '../../projects/entities/project.entity'
+import { Tag } from '../../tags/entities/tag.entity'
+import { User } from '../../users/user.entity'
 
 import {
   Entity,

@@ -8,6 +8,7 @@ import {
 import { Task } from '../../tasks/entities/task.entity'
 
 
+
 @Entity()
 export class Tag {
   @PrimaryGeneratedColumn('uuid')
